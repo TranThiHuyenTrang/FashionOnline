@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fashion Online</title>
+	<link rel="stylesheet" type="text/css" href="Web.css">
+	<script src="Fashion.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="icon" type="img/png  " href="https://media.istockphoto.com/photos/banana-isolated-on-white-background-top-view-picture-id903034374?k=6&m=903034374&s=612x612&w=0&h=i6ISIiDz_yZBuoSbON2C-TGHQ0gLSdmFJMAeH6JI114=">
+</head>
+<center>
+<body onload="displayItems();displayCart();">
+		<div class="header">
+		<marquee>FASHION ONLINE SHOP ĐỊA CHỈ: SỐ 101B/38 LÊ HỮU TRÁC, 
+		PHƯỜNG AN HẢI ĐÔNG, QUẬN SƠN TRÀ,TP ĐÀ NẴNG </marquee>
+	</div>
+	<center>
+	<div class="flex" style="margin-top: 20px;width: 1000px;">
+		<img class="img" src="logo.jfif">
+		<div style="display: flex;">
+			<img style="width: 60;height: 50px; margin-top: 30px;" src="dt2.jpg"> 
+			<h5 style="font-size: 20px;">0314.333.452<br>0914.343.345</h5>
+		</div>
+		<span class="icon">
+			<button class="giohang" onclick="ShoppyCart()"class="cart"><i class="fas fa-shopping-bag"></i>&emsp;Giỏ hàng</button>
+		</span>
+	</div>
+	</center>
+	<!-- Menu -->
+	<div class="topnav">
+		<a class="active" href="HomePage.html">Trang chủ</a>
+		<a href="Men.html">Thời trang nam</a>
+		<a href="Women.html">Thời trang nữ</a>
+		<a href="lipstick.html">Mỹ phẩm xách tay</a>
+		<a href="#contact">Liên hệ</a>
+		<div class="search-container">
+		    <form action="/action_page.php">
+			    <input type="text" placeholder="Search.." name="search">
+			    <button type="submit"><i class="fa fa-search"></i></button>
+		    </form>
+		</div>
+	</div>
+
+  <!--  -->
+	<div style="margin-top:30px">
+		<h1 style="color:#9D0006;">SẢN PHẨM</h1>
+		<!-- s -->
+	</div>
+	<div class="grid" id="container"></div></div>
+	<br><hr style="width: 700px">
+	<h1 style="color: #9D0006;">SHOPY CARD</h1>
+	<!-- <div class="butfunc">
+		<button class ="butlist" onclick="Sum()">SUM</button>
+	</div> -->
+	<div id="container2"></div>
+	<hr style="width: 700px">
+	<!-- Display Sum -->
+	<div class ="sum">
+		<b>Tạm tính: </b><br>
+		<b id ="tong"></b>
+	</div>
+	<br><hr>
+	<button class="giohang">Thanh toán</button>
+	<hr style="width: 700px;">
+</center>
+	<script type="text/javascript">
+		//Slide Show
+		var slide = ["img1.jfif","img2.jfif","img3.jfif"];
+        var position = 0;
+        setInterval(function(){document.getElementById('myId').src= slide[position++];
+	      if (position==3){
+	        position=0;
+	      }
+	      },3000);
+
+		var item1 = {name:"Váy Woan 1",made:"Xuất xứ : BangCok",price:20000,img :"nu1.jpg"}
+		var item2 = {name:"Váy Woan 2",made:"Xuất xứ : Laos",price:5000,img:"nu2.jfif"}
+		var item3 = {name:"Váy Woan 3",made:"Xuất xứ : China",price:7000,img:"nu3.jfif"}
+		var item4 = {name:"Váy Woan 4",made:"Xuất xứ : Laos",price:40000,img:"nu4.jfif"}
+		var item5 = {name:"Áo phong 1",made:"Xuất xứ : VietNam",price:90000,img:"na1.jpg"}
+		var item6 = {name:"Áo phong 2",made:"Xuất xứ : Laos",price:80000,img:"na2.jfif"}
+		var item7 = {name:"Áo phong 3",made:"Xuất xứ : Laos",price:80000,img:"na3.jfif"}
+		var item8 = {name:"Áo phong 4",made:"Xuất xứ : Laos",price:80000,img:"na4.jfif"}
+		
+		var items = [item1,item2,item3,item4,item5,item6,item7,item8];
+		var cart = [];
+		function displayItems(){
+			var box = document.getElementById("container");
+			for (var i = 0; i <items.length; i++) {
+				var flex = document.createElement("div");
+				flex.className = "grid-item";
+				var paraImg = document.createElement("img");
+				var paraName = document.createElement("h3");
+				var paraMade = document.createElement("h3");
+				var paraPrice = document.createElement("h3");
+				var paraButton = document.createElement("button");
+				paraButton.className = "btn-2";
+				paraImg.className = "img";
+
+				paraImg.src= items[i].img;
+				paraName.innerHTML = items[i].name;
+				paraMade.innerHTML= items[i].made;
+				paraPrice.innerHTML = items[i].price;
+				paraButton.innerHTML = "Đặt mua";
+				// Function Add
+				paraButton.onclick = function(ar){
+					return function(){
+					alert("Đã thêm vào giỏ hàng")
+					cart.push(items[ar]);
+					console.log(cart);
+					document.getElementById("container2").innerHTML = ' ';	
+					displayCart();
+					Sum();
+				}	
+			}(i);
+				flex.appendChild(paraImg);
+				flex.appendChild(paraName);
+				flex.appendChild(paraMade);
+				flex.appendChild(paraPrice);
+				flex.appendChild(paraButton);
+				box.appendChild(flex);
+			}
+		}
+		// Display Product
+		function displayCart(){
+			var box2 = document.getElementById("container2");
+			for (var i = 0; i < cart.length; i++) {
+				var flex = document.createElement("div");
+				flex.className = "flex";
+				var paraName1 = document.createElement("h3");
+				var paraPrice1 = document.createElement("h3");
+				var paraButton1 = document.createElement("button");
+				paraButton1.className = "btn-2";
+
+				paraName1.innerHTML = cart[i].name;
+				paraPrice1.innerHTML= cart[i].price;
+				paraButton1.innerHTML = "DELETE";
+				// Function DELETE
+				paraButton1.onclick = function(br){
+						return function(){
+							 cart.splice(br,1);
+							 console.log(cart);
+							 document.getElementById("container2").innerHTML = ' ';	
+							 displayCart();
+							 Sum();
+							 } 
+					}(i);
+				flex.appendChild(paraName1);
+				flex.appendChild(paraPrice1);
+				flex.appendChild(paraButton1);
+				box2.appendChild(flex);
+			}					
+		}
+		function Sum() {
+            var sum = 0;
+            var thue = 0;
+            var sau = 0;
+            for (var k = 0; k < cart.length; k++) {
+                sum += cart[k].price;
+                thue+= sum*10/100;
+                sau+= sum+thue;
+            }
+            var sumText = document.getElementById("tong").innerText = sum;
+            var sumText1 = document.getElementById("thuee").innerText = thue;
+            var sumText2 = document.getElementById("sauu").innerText = sau;
+        }
+        displayProduct();
+        displayCart();
+
+
+        // Function Shoppy Cart
+        function ShoppyCart(){
+        		alert("gio hang");
+                Sum();
+                var a = document.getElementById('container');
+                a.style.display="none";
+                var b = document.getElementById('container2');
+                b.style.display = "block";
+            }	
+	</script>
+</body>
+</html>
+
