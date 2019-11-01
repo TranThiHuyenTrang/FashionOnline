@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fashion Online</title>
+	<link rel="stylesheet" type="text/css" href="Web.css">
+	<script src="Web.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="icon" type="img/png  " href="https://media.istockphoto.com/photos/banana-isolated-on-white-background-top-view-picture-id903034374?k=6&m=903034374&s=612x612&w=0&h=i6ISIiDz_yZBuoSbON2C-TGHQ0gLSdmFJMAeH6JI114=">
+</head>
+<center>
+<body onload="displayWomen();">
+	<div class="header">
+		<marquee>FASHION ONLINE SHOP ĐỊA CHỈ: SỐ 101B/38 LÊ HỮU TRÁC, 
+		PHƯỜNG AN HẢI ĐÔNG, QUẬN SƠN TRÀ,TP ĐÀ NẴNG </marquee>
+	</div>
+	<center>
+	<div class="logo">
+		<img class="img" src="picture/logo.jfif">
+		<div style="display: flex;">
+			<img class="img1" src="picture/dt2.jpg"> 
+			<h5 style="font-size: 20px;">0314.333.452<br>0914.343.345</h5>
+		</div>
+		<button class="giohang" onclick="load2()"><a >Thanh toán</a></button>
+		<span class="icon">
+			<button class="giohang" onclick="ShoppyCard()"class="cart"><i class="fas fa-shopping-bag"></i>&emsp;Giỏ hàng</button>
+		</span>
+	</div>
+	</center>
+<!-- Menu -->
+<div class="topnav">
+	<a href="HomePage.html">Trang chủ</a>
+	<a href="Men.html">Thời trang nam</a>
+	<a href="Women.html">Thời trang nữ</a>
+	<a href="lipstick.html">Mỹ phẩm xách tay</a>
+	<a href="#contact">Liên hệ</a>
+	<div class="search-container">
+	    <form action="/action_page.php">
+		    <input id="find" type="text" placeholder="Search.." name="search">
+		    <button onclick="search()" type="submit">Search</button>
+	    </form>
+	</div>
+</div>
+<h1 class="sp">THỜI TRANG NỮ</h1>
+<div class="grid" id="container"></div>
+
+<!-- Contanier 2 -->
+<hr style="width: 700px">
+<h1 class="sp">SHOPY CARD</h1>
+<div id="container2"></div>
+<br><hr style="width: 700px">
+	<div class="sum">
+		<h1>Tổng:</h1>
+		<b id ="tong"></b>
+	</div>
+<!--  contenner 2-->
+<div class="contener_2" id="contener_2">
+<center>
+	<div>
+		<div class="text">
+			<p><b>NHẬP THÔNG TIN CỦA BẠN ĐỂ MUA HÀNG</b></p>
+			<input class="inputtext"type="text" name="" placeholder="Họ và tên" id="name"><br>
+			<input class="inputtext" type="text" name="" placeholder="Điện thoại" id="phone"><br>
+			<input class="inputtext" type="text" name="" placeholder="Email" id="email"><br>
+			<input class="inputtext" type="text" name="" placeholder="Địa chỉ" id="address"><br>
+			<textarea class="inputtext" name="" placeholder="Ghi chú" id="note"></textarea>
+			<button class="giohang" onclick="thongtin()"><a>Đặt hàng</a></button>
+			<div></div>
+		</div>
+	</div>
+</center>
+</div>
+<!-- Contanier 3-->
+<div class="con3t" id="contener_3">
+<center>
+	<p><b>THÔNG TIN CỦA BẠN</b></p>
+	<table class="table-1" id="myTable">
+		<tr>
+			<th>Họ và tên</th>
+			<th>Điện thoại</th>
+			<th>Email</th>
+			<th>Địa chỉ</th>
+			<th>Ghi chú</th>
+		</tr>
+		<tr>
+			<th id="nameCus"></th>
+			<th id="phoneCus"></th>
+			<th id="emailCus"></th>
+			<th id="addressCus"></th>
+			<th id="noteCus"></th>
+		</tr>
+	</table>
+	<button class="giohang" onclick="xacnhan()"><a href="HomePage.html">Xác nhận đơn hàng</a></button>
+</center>
+</div>
+<!-- Footer -->
+<div id="container4" class="footer">
+	<div>
+		<p><b>TRỤ SỞ CHÍNH</b></p>
+		<p>101B/38 LÊ HỮU TRÁC, QUẬN SƠN<br> TRÀ,TP ĐÀ NẴNG</p>
+		<p>0314.333.452 - 0914.343.345</p>
+		<p>Xem bản đồ</p>
+	</div>
+	<div>
+		<p><b>HITECH TPHCM</b></p>
+		<p>456B/38 LÊ HỮU BẰNG, QUẬN TÂN BÌNH<br> TRÀ,TP HỒ CHÍ MINH</p>
+		<p>0314.333.452 - 0914.343.345</p>
+		<p>Xem bản đồ</p>
+	</div>
+	<div>
+		<p><b>HITECH HÀ NỘI</b></p>
+		<p>456B/32 PHAN HỮU BẰNG, QUẬN CAAUD GIẤY<br> TRÀ,TP HÀ NỘI</p>
+		<p>0314.333.452 - 0914.343.345</p>
+		<p>Xem bản đồ</p>
+	</div>
+</div>
+</body>
+</html>
+
